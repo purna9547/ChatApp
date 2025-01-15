@@ -13,7 +13,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/websocket-server-production-9664.up.railway.app")
-                .setAllowedOrigins("https://ChatApp-production.up.railway.app/")
+                .setAllowedOrigins("https://ChatAppbyPurna.up.railway.app/")
                 .withSockJS();
 
     }
