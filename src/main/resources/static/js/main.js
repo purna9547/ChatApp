@@ -19,7 +19,7 @@ function connect(event) {
     if(username) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
-        var socket = new SockJS('/ws');
+        var socket = new SockJS('/websocket-server-production-9664.up.railway.app');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, onConnected, onError);
     }
