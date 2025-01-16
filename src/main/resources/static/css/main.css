@@ -16,11 +16,36 @@ body {
     font-weight: 400;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
-    line-height: 1.58;
-    color: #333;
-    background-color: #f4f4f4;
+    line-height: 1.6; /* Slightly increased for better readability */
+    color: #2c2c2c; /* A softer dark color for less strain on the eyes */
+    background: linear-gradient(120deg, #f8f9fa, #e9ecef); /* Light gradient for depth */
     height: 100%;
+    text-rendering: optimizeLegibility; /* Improves font rendering */
+    -webkit-font-smoothing: antialiased; /* Smoothens fonts for WebKit browsers */
+    scroll-behavior: smooth; /* Adds smooth scrolling for navigation */
 }
+
+/* Optional: Enhance selection for accessibility */
+body::selection {
+    background-color: #007bff; /* Highlight color for text selection */
+    color: #fff; /* White text for better contrast */
+}
+
+/* Add a global box-sizing reset for consistency */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Optional: Add a shadow for deeper visual appeal on the main container */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for focus */
+}
+
 
 .clearfix:after {
     display: block;
@@ -62,19 +87,39 @@ a {
 }
 
 button {
-    box-shadow: none;
-    border: 1px solid transparent;
-    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    font-size: 16px;
     outline: none;
-    line-height: 100%;
+    line-height: 1.5;
     white-space: nowrap;
     vertical-align: middle;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
-    transition: all 0.2s ease-in-out;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     cursor: pointer;
-    min-height: 38px;
+    min-height: 42px;
+    background: linear-gradient(135deg, #6db33f, #4caf50);
+    color: #fff;
+    font-weight: bold;
 }
+
+button:hover {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+    background: #ccc;
+    color: #777;
+    cursor: not-allowed;
+}
+
 
 button.default {
     background-color: #e8e8e8;
@@ -98,25 +143,25 @@ button.accent {
     text-align: center;
 }
 
-.username-page-container {
-    background: #fff;
-    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-    border-radius: 2px;
-    width: 100%;
-    max-width: 500px;
-    display: inline-block;
-    margin-top: 42px;
-    vertical-align: middle;
-    position: relative;
-    padding: 35px 55px 35px;
-    min-height: 250px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    margin-top: -160px;
-}
+/*.username-page-container {*/
+/*    background: #fff;*/
+/*    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);*/
+/*    border-radius: 2px;*/
+/*    width: 100%;*/
+/*    max-width: 500px;*/
+/*    display: inline-block;*/
+/*    margin-top: 42px;*/
+/*    vertical-align: middle;*/
+/*    position: relative;*/
+/*    padding: 35px 55px 35px;*/
+/*    min-height: 250px;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    margin: 0 auto;*/
+/*    margin-top: -160px;*/
+/*}*/
 
 .username-page-container .username-submit {
     margin-top: 10px;
@@ -127,39 +172,93 @@ button.accent {
     position: relative;
     height: 100%;
 }
+#chat-page.chat-message p{
+    color: black;
+    margin-left: 100px;
+}
 
 .chat-container {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-    margin-top: 30px;
-    height: calc(100% - 60px);
-    max-height: 600px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #88e5a5, #6de7dd);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    height: calc(100% - 40px);
+    max-height: 650px;
     position: relative;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
 }
+
+.chat-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #4caf50, #6db33f);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
 
 #chat-page ul {
     list-style-type: none;
-    background-color: #FFF;
+    background-color: #f9f9f9; /* Subtle off-white for a modern look */
     margin: 0;
-    overflow: auto;
-    overflow-y: scroll;
-    padding: 0 20px 0px 20px;
+    overflow: hidden; /* Prevents horizontal overflow */
+    overflow-y: auto; /* Smooth vertical scrolling */
+    padding: 10px 20px; /* Added padding for better spacing */
     height: calc(100% - 150px);
+    border-radius: 10px; /* Rounded corners for a soft look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth */
+    scrollbar-width: thin; /* Makes the scrollbar slim for better aesthetics */
+    scrollbar-color: #d1d1d1 #f9f9f9; /* Custom scrollbar color */
+}
+
+/* Customize scrollbar for Webkit browsers */
+#chat-page ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-page ul::-webkit-scrollbar-track {
+    background: #f9f9f9; /* Matches background for seamless look */
+    border-radius: 10px;
+}
+
+#chat-page ul::-webkit-scrollbar-thumb {
+    background-color: #d1d1d1; /* Subtle gray for scrollbar */
+    border-radius: 10px;
+    border: 2px solid #f9f9f9; /* Matches background for contrast */
+}
+
+/* Add hover effect for list items inside the chat */
+#chat-page ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #ffffff; /* Clean white for list items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#chat-page ul li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle pop-out effect */
 }
 
 #chat-page #messageForm {
     padding: 20px;
 }
 
-#chat-page ul li {
-    line-height: 1.5rem;
-    padding: 10px 20px;
-    margin: 0;
-    border-bottom: 1px solid #f4f4f4;
-}
+/*#chat-page ul li {*/
+/*    line-height: 1.5rem;*/
+/*    padding: 10px 20px;*/
+/*    margin: 0;*/
+/*    border-bottom: 1px solid #f4f4f4;*/
+/*}*/
 
 #chat-page ul li p {
     margin: 0;
@@ -197,7 +296,16 @@ button.accent {
     border-radius: 50%;
     font-style: normal;
     text-transform: uppercase;
+    /*background: linear-gradient(135deg, #6db33f, #3a8f27);*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+#chat-page .chat-message i:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
 
 #chat-page .chat-message span {
     color: #333;
@@ -206,19 +314,55 @@ button.accent {
 
 #chat-page .chat-message p {
     color: #43464b;
+    margin-left: 68px;
 }
 
 #messageForm .input-group input {
     float: left;
     width: calc(100% - 85px);
+    padding: 10px 15px; /* Adds comfortable padding for text input */
+    font-size: 1rem; /* Ensures legible text size */
+    border: 1px solid #ddd; /* Subtle border for a clean look */
+    border-radius: 5px; /* Rounded corners for a modern feel */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Adds depth inside the input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    color: #333; /* Text color for readability */
+    background-color: #f9f9f9; /* Light background for contrast */
 }
 
+/* Focus state for better interactivity */
+#messageForm .input-group input:focus {
+    border-color: #007bff; /* Highlight border with a pleasant blue */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+    outline: none; /* Removes the default outline */
+    background-color: #fff; /* Brightens the input background on focus */
+}
+
+
 #messageForm .input-group button {
-    float: left;
-    width: 80px;
-    height: 38px;
+    width: 65px;
+    background: #007bff; /* Primary blue background */
+    color: #fff; /* White text */
+    border: 2px solid #007bff; /* Remove border */
+    padding: 4px ; /* Vertical padding for better click area */
+    font-size: 1rem; /* Maintain readable text size */
+    cursor: pointer; /* Show pointer on hover */
+    border-radius:10px; /* Rounded corners on the right */
+    transition: background 0.3s ease; /* Smooth background color transition */
     margin-left: 5px;
 }
+
+/* Hover effect */
+#messageForm .input-group button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Focus effect */
+#messageForm .input-group button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px #007bff; /* Add a subtle shadow to indicate focus */
+}
+
 
 .chat-header {
     text-align: center;
@@ -268,7 +412,28 @@ button.accent {
 
     #messageForm .input-group button {
         width: 65px;
+        background: #007bff; /* Primary blue background */
+        color: #fff; /* White text */
+        border: 2px solid #007bff; /* Remove border */
+        padding: 4px ; /* Vertical padding for better click area */
+        font-size: 1rem; /* Maintain readable text size */
+        cursor: pointer; /* Show pointer on hover */
+        border-radius: 10px; /* Rounded corners on the right */
+        transition: background 0.3s ease; /* Smooth background color transition */
+        margin-left: 5px;
     }
+
+    /* Hover effect */
+    #messageForm .input-group button:hover {
+        background: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Focus effect */
+    #messageForm .input-group button:focus {
+        outline: none; /* Remove default focus outline */
+        box-shadow: 0 0 5px #007bff; /* Add a subtle shadow to indicate focus */
+    }
+
 
     #messageForm .input-group input {
         width: calc(100% - 70px);
@@ -286,3 +451,92 @@ button.accent {
         font-size: 1.1em;
     }
 }
+
+
+
+/*new user name*/
+/*.chat-container {*/
+/*    max-width: 800px;*/
+/*    margin: 20px auto;*/
+/*    background: linear-gradient(135deg, #ffffff, #f9f9f9);*/
+/*    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);*/
+/*    border-radius: 16px;*/
+/*    padding: 20px;*/
+/*    height: calc(100% - 40px);*/
+/*    max-height: 650px;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*    border: 1px solid #e0e0e0;*/
+/*}*/
+
+/*.chat-container::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 10px;*/
+/*    background: linear-gradient(90deg, #4caf50, #6db33f);*/
+/*    border-top-left-radius: 16px;*/
+/*    border-top-right-radius: 16px;*/
+/*}*/
+
+.username-page-container {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    display: inline-block;
+    margin: auto;
+    padding: 40px 60px;
+    min-height: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+/*    */
+
+}
+
+.username-page-container h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.username-page-container input {
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.username-page-container button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4caf50, #6db33f);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.username-page-container button:hover {
+    background: linear-gradient(135deg, #45a047, #5dba3a);
+    transform: translateY(-2px);
+}
+
+.username-page-container button:active {
+    background: linear-gradient(135deg, #388e3c, #4caf50);
+    transform: translateY(1px);
+}
+
+

@@ -9,7 +9,7 @@ var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 var stompClient = null;
 var username = null;
-var colors=['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6'];
+var colors=['#FF6633', '#FF33FF','#88E5A5FF', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6', '#FFD700', '#FFA07A', '#FFA500', '#FF4500', '#DA70D6'];
 
 
 
@@ -111,3 +111,4 @@ usernameForm.addEventListener('submit', connect, true);
 
 
 messageForm.addEventListener('submit', sendMessage, true);
+
