@@ -86,6 +86,19 @@ a {
     color: #6db33f;
 }
 
+.chat-message img {
+    max-width: 150px; /* Set the maximum width */
+    max-height: 300px; /* Set the maximum height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    /*border-radius: 8px; !* Optional: Rounded corners *!*/
+    margin-left: 90px; /* Add spacing around the image */
+    display: block; /* Ensure proper layout */
+    margin-top: 25px;
+}
+
+
+
 button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
@@ -352,6 +365,7 @@ button.accent {
     margin-left: 5px;
 }
 
+
 /* Hover effect */
 #messageForm .input-group button:hover {
     background: #0056b3; /* Darker blue on hover */
@@ -392,11 +406,32 @@ button.accent {
         margin-right: 10px;
         margin-top: 10px;
     }
+
+    .chat-message img {
+        max-width: 150px; /* Set the maximum width */
+        max-height: 200px; /* Set the maximum height */
+        width: auto; /* Maintain aspect ratio */
+        height: auto; /* Maintain aspect ratio */
+        /*border-radius: 8px; !* Optional: Rounded corners *!*/
+        margin-left: 5px ;/* Add spacing around the image */
+        display: block; /* Ensure proper layout */
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .chat-container {
         height: calc(100% - 30px);
+    }
+    .chat-message img {
+        max-width: 150px; /* Set the maximum width */
+        max-height: 200px; /* Set the maximum height */
+        width: auto; /* Maintain aspect ratio */
+        height: auto; /* Maintain aspect ratio */
+        /*border-radius: 8px; !* Optional: Rounded corners *!*/
+        margin-left: 5px; /* Add spacing around the image */
+        display: block; /* Ensure proper layout */
+        margin-top: 25px;
     }
 
     .username-page-container {
@@ -538,5 +573,67 @@ button.accent {
     background: linear-gradient(135deg, #388e3c, #4caf50);
     transform: translateY(1px);
 }
+
+/*new style for choose file*/
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#message {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.camera-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/sentImg.png');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.camera-icon:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+}
+
+
+/*.camera-icon:hover {*/
+/*    background-color: #0056b3;*/
+/*}*/
+
+.camera-icon i {
+    line-height: 36px;
+}
+
+button.primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button.primary:hover {
+    background-color: #0056b3;
+}
+
+
+/*For message visibility*/
+
 
 

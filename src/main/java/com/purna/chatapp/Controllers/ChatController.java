@@ -1,6 +1,5 @@
 package com.purna.chatapp.Controllers;
 
-
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -10,17 +9,23 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ChatController {
 
-    @MessageMapping("chat.sendMessage")
+    // Handles sending of messages, including text and images
+    @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage){
-        return chatMessage;
+    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+        // Optionally, you can log or validate the incoming message content and image
+        if (chatMessage.getImage() != null) {
+            System.out.println("Received image message from: " + chatMessage.getSender());
+        }
+        return chatMessage; // Broadcast the message to all subscribers
     }
-    @MessageMapping("chat.addUser")
-    @SendTo("/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor){
 
-        //Add username at websocket session
-        headerAccessor.getSessionAttributes().put("username",chatMessage.getSender());
+    // Handles user joining the chat
+    @MessageMapping("/chat.addUser")
+    @SendTo("/topic/public")
+    public ChatMessage addUser(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+        // Add the username to the WebSocket session attributes
+        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         return chatMessage;
     }
 }

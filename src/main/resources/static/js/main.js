@@ -73,6 +73,13 @@ function onMessageReceived(payload) {
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
     }
+    if (message.image) {
+        var imageElement = document.createElement('img');
+        imageElement.src = message.image; // Display the image
+        imageElement.alt = 'Sent image';
+        imageElement.style.maxWidth = '100%';
+        messageElement.appendChild(imageElement);
+    }
     var textElement = document.createElement('p');
     var messageText = document.createTextNode(message.content);
     textElement.appendChild(messageText);
@@ -84,20 +91,34 @@ function onMessageReceived(payload) {
 }
 function sendMessage(event) {
     var messageContent = messageInput.value.trim();
-    if(messageContent && stompClient) {
+    var imageInput = document.querySelector('#imageInput');
+    var imageFile = imageInput.files[0];
+
+    if ((messageContent || imageFile) && stompClient) {
         var chatMessage = {
             sender: username,
             content: messageContent,
-            type: 'CHAT'
+            type: 'CHAT',
         };
-        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+
+        if (imageFile) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                chatMessage.image = e.target.result; // Base64 encoded image
+                stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+            };
+            reader.readAsDataURL(imageFile);
+        } else {
+            stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+        }
+
         messageInput.value = '';
+        imageInput.value = ''; // Clear file input
     }
 
     event.preventDefault();
-
-
 }
+
 
 function getAvatarColor(messageSender) {
     var hash = 0;
