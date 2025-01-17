@@ -133,3 +133,13 @@ usernameForm.addEventListener('submit', connect, true);
 
 messageForm.addEventListener('submit', sendMessage, true);
 
+
+// user chats should be displayed in the chat right area and others in the left area give me this code
+
+// Example of appending a message dynamically
+
+
+
+
+
+

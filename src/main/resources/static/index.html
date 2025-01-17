@@ -12,13 +12,13 @@
 
 <div id="username-page">
     <div class="username-page-container">
-        <h1 class="title">Type your username to enter the Chatroom</h1>
+        <h1 class="title">Type your name to enter the Chatroom</h1>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                <input type="text" id="name" placeholder="Enter your name" autocomplete="off" class="form-control" />
             </div>
             <div class="form-group">
-                <button type="submit" class="accent username-submit">Start Chatting</button>
+                <button type="submit" id="sbutton" class="accent username-submit">Start Chatting</button>
             </div>
         </form>
     </div>
@@ -42,8 +42,9 @@
                     <label for="imageInput" class="camera-icon">
                         <i class="fa fa-camera"></i>
                     </label>
+
                     <input type="file" id="imageInput" accept="image/*" style="display: none;">
-                    <button type="submit" class="primary">Send</button>
+                    <button type="submit" class="primary"></button>
                 </div>
             </div>
         </form>

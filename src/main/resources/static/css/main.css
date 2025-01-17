@@ -99,9 +99,9 @@ a {
 
 
 
-button {
+#sbutton {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     font-size: 16px;
     outline: none;
     line-height: 1.5;
@@ -117,36 +117,36 @@ button {
     font-weight: bold;
 }
 
-button:hover {
+#sbutton:hover {
     background: linear-gradient(135deg, #4caf50, #388e3c);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-button:active {
+#sbutton:active {
     transform: translateY(2px);
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:disabled {
+#sbutton:disabled {
     background: #ccc;
     color: #777;
     cursor: not-allowed;
 }
 
 
-button.default {
+#sbutton.default {
     background-color: #e8e8e8;
     color: #333;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
 }
 
-button.primary {
-    background-color: #6db33f;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-    color: #fff;
-}
+/*button.primary {*/
+/*    background-color: #6db33f;*/
+/*    !*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);*!*/
+/*    color: #fff;*/
+/*}*/
 
-button.accent {
+#sbutton.accent {
     background-color: #6db33f;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
     color: #fff;
@@ -221,6 +221,7 @@ button.accent {
     list-style-type: none;
     background-color: #f9f9f9; /* Subtle off-white for a modern look */
     margin: 0;
+    border: none;
     overflow: hidden; /* Prevents horizontal overflow */
     overflow-y: auto; /* Smooth vertical scrolling */
     padding: 10px 20px; /* Added padding for better spacing */
@@ -352,30 +353,30 @@ button.accent {
 }
 
 
-#messageForm .input-group button {
-    width: 65px;
-    background: #007bff; /* Primary blue background */
-    color: #fff; /* White text */
-    border: 2px solid #007bff; /* Remove border */
-    padding: 4px ; /* Vertical padding for better click area */
-    font-size: 1rem; /* Maintain readable text size */
-    cursor: pointer; /* Show pointer on hover */
-    border-radius:10px; /* Rounded corners on the right */
-    transition: background 0.3s ease; /* Smooth background color transition */
-    margin-left: 5px;
-}
+/*#messageForm .input-group button {*/
+/*    width: 65px;*/
+/*    background: #007bff; !* Primary blue background *!*/
+/*    color: #fff; !* White text *!*/
+/*    border: 2px solid #007bff; !* Remove border *!*/
+/*    padding: 4px ; !* Vertical padding for better click area *!*/
+/*    font-size: 1rem; !* Maintain readable text size *!*/
+/*    cursor: pointer; !* Show pointer on hover *!*/
+/*    border-radius:10px; !* Rounded corners on the right *!*/
+/*    transition: background 0.3s ease; !* Smooth background color transition *!*/
+/*    margin-left: 5px;*/
+/*}*/
 
 
 /* Hover effect */
-#messageForm .input-group button:hover {
-    background: #0056b3; /* Darker blue on hover */
-}
+/*#messageForm .input-group button:hover {*/
+/*    background: #0056b3; !* Darker blue on hover *!*/
+/*}*/
 
 /* Focus effect */
-#messageForm .input-group button:focus {
-    outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 5px #007bff; /* Add a subtle shadow to indicate focus */
-}
+/*#messageForm .input-group button:focus {*/
+/*    outline: none; !* Remove default focus outline *!*/
+/*    box-shadow: 0 0 5px #007bff; !* Add a subtle shadow to indicate focus *!*/
+/*}*/
 
 
 .chat-header {
@@ -445,23 +446,21 @@ button.accent {
         height: calc(100% - 120px);
     }
 
-    #messageForm .input-group button {
-        width: 65px;
-        background: #007bff; /* Primary blue background */
-        color: #fff; /* White text */
-        border: 2px solid #007bff; /* Remove border */
-        padding: 4px ; /* Vertical padding for better click area */
-        font-size: 1rem; /* Maintain readable text size */
-        cursor: pointer; /* Show pointer on hover */
-        border-radius: 10px; /* Rounded corners on the right */
-        transition: background 0.3s ease; /* Smooth background color transition */
-        margin-left: 5px;
-    }
+    /*#messageForm .input-group button {*/
+    /*    width: 65px;*/
+    /*    height: 40px; !* Adjust height if needed *!*/
+    /*    background: url('../img/sendIcon.png') no-repeat center center; !* Add background image *!*/
+    /*    background-size: 20px 20px; !* Adjust the size of the image *!*/
+    /*    border: 2px solid #007bff; !* Button border *!*/
+    /*    padding: 4px; !* Padding for better click area *!*/
+    /*    cursor: pointer; !* Pointer on hover *!*/
+    /*    border-radius: 10px; !* Rounded corners *!*/
+    /*    transition: background-color 0.3s ease; !* Smooth background transition *!*/
+    /*    margin-left: 5px;*/
+    /*}*/
 
     /* Hover effect */
-    #messageForm .input-group button:hover {
-        background: #0056b3; /* Darker blue on hover */
-    }
+
 
     /* Focus effect */
     #messageForm .input-group button:focus {
@@ -617,23 +616,39 @@ button.accent {
     line-height: 36px;
 }
 
-button.primary {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+/*button.primary {*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    padding: 10px 15px;*/
+/*    cursor: pointer;*/
+/*    font-size: 14px;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*button.primary:hover {*/
+/*    background-color: #0056b3;*/
+/*}*/
+
+
+/*For sent icon*/
+#messageForm .input-group button {
+    width: 65px;
+    height: 40px; /* Adjust height if needed */
+    background: url('../img/sendIcon.png') no-repeat center center; /* Add background image */
+    background-size: 25px 25px; /* Adjust the size of the image */
+    border: none; /* Button border */
+    padding: 4px; /* Padding for better click area */
+    cursor: pointer; /* Pointer on hover */
+    /*border-radius: 10px; !* Rounded corners *!*/
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    /*margin-left: 5px;*/
+}
+#messageForm .input-group button:hover {
+    transform: scale(1.1);
 }
 
-button.primary:hover {
-    background-color: #0056b3;
-}
 
 
-/*For message visibility*/
-
-
-
+/*For the message display*/
